@@ -11,14 +11,14 @@ public class ServletContext extends AbsServletContext {
 	public ServletContext(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		super();
 		
-		// Set httpRequest, httpResponse in ServletContext
+		// set httpRequest, httpResponse in ServletContext
 		this.request = request;
 		this.response = response;
 
-		// Get bizId and dataformat
+		// get bizId and dataformat
 		obtainBizidDataformat();
 		
-		// Set Servlet Id
+		// set Servlet Id
 		this.servletId = ServletIdHelper.getInstance().newServletId(this.bizId, request.getSession().getId());
 
 	}

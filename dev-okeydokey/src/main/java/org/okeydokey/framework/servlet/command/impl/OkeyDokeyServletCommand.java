@@ -11,7 +11,7 @@ import org.okeydokey.framework.utils.StringUtil;
 
 /**
  * <pre>
- * After bizid, dataformat setting are completed,
+ * after bizid, dataformat setting are completed,
  * call each data format handler by dataformat
  * </pre>
  * 

@@ -7,38 +7,91 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.okeydokey.framework.context.IServletContext;
 import org.okeydokey.framework.data.impl.BizMap;
-
+/**
+ * <pre>
+ * abstract Servletcontext class
+ * </pre>
+ * 
+ * @author johunsang@gmail.com
+ * @version 1.0
+ * @since 2015.01.01
+ */
 public abstract class AbsServletContext implements IServletContext{
 
+	/**
+	 * default BizMap
+	 */
 	protected BizMap<String, Object> bizMap;
 
+	/**
+	 * whether exception occur where biz class
+	 */
 	protected boolean bizExceptionThrown;
 
+	/**
+	 * exception from biz class
+	 */
 	protected Throwable bizException;
 
+	/**
+	 * unique servlet id
+	 */
 	protected String servletId;
 
+	/**
+	 * biz id
+	 */
 	protected String bizId;
 
+	/**
+	 * biz id which called first
+	 */
 	protected String originalBizId;
 
+	/**
+	 * 
+	 */
 	protected String dataFormat;
 
+	/**
+	 * 
+	 */
 	protected String className;
 
+	/**
+	 * 
+	 */
 	protected HttpServletRequest request;
 
+	/**
+	 * 
+	 */
 	protected HttpServletResponse response;
 
+	/**
+	 * 
+	 */
 	protected ByteBuffer ReqeustBytebuffer;
 	
+	/**
+	 * 
+	 */
 	protected ByteBuffer ResponseBytebuffer;
 	
+	/**
+	 * 
+	 */
 	protected String RequestASCIIString;
 	
+	/**
+	 * 
+	 */
 	protected String ResponseASCIIString;
 	
-	public AbsServletContext() throws Exception {
+	/**
+	 * @throws Exception
+	 */
+	public AbsServletContext(){
 		bizMap = new BizMap<String, Object>();
 		bizExceptionThrown = false;
 	}

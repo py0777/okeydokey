@@ -11,40 +11,52 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- *
+ * <pre>
+ * abstract biz class
+ * all biz class should extend this class
+ * </pre>
+ * 
+ * @author johunsang@gmail.com
+ * @version 1.0
+ * @since 2015.01.01
  */
 public abstract class AbsBiz implements IBiz {
 
+	/**
+	 * biz.log
+	 */
 	public static Logger bizlog;
 
+	/**
+	 * constructor
+	 */
 	public AbsBiz() {
 		bizlog = LoggerFactory.getLogger("biz");
 	}
 
 	/**
+	 * call biz class by bizId
 	 * 
-	 * 
-	 * @param bizmap
-	 * @param context
-	 * @param bizId
+	 * @param context -> ServletContext
+	 * @param bizId -> bizId
 	 * @throws Exception
 	 */
 	protected void callBiz(IServletContext context, String bizId) throws Exception {
 		
-		// Get and set class
+		// get and set class
 		String className = ApplicationContext.getInstance().getServiceMap().get(bizId);
 		context.setClassName(className);
 
-		// Set original bizId
+		// set original bizId
 		if(StringUtil.isEmpty(context.getOriginalBizId())){
 			context.setOriginalBizId(context.getBizId());
 		}
 		
-		// Set bizId
+		// set bizId
 		context.setBizId(bizId);
 		context.getBizMap().put(ConfigConstants.BIZID, bizId);
 
-		// Execute Service start
+		// execute Service start
 		Service service = ApplicationContext.getInstance().getServiceList().getService(context);
 		service.execute(context);
 	}

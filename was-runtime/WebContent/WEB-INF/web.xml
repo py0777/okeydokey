@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+	<display-name>OKEYDOCKEY</display-name>
+	<description>OKEYDOCKEY</description>
+
+	<!-- OKEYDOCKEY Application Listener -->
+	<listener>
+		<listener-class>org.okeydokey.framework.core.ApplicationListener
+		</listener-class>
+	</listener>
+
+	<!-- Character Encoding filter -->
+	<filter>
+		<filter-name>encoding</filter-name>
+		<filter-class>org.okeydokey.framework.filter.EncodingFilter
+		</filter-class>
+		<init-param>
+			<param-name>requestEncoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>encoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+   <!-- XSS filter -->
+	<filter>
+		<filter-name>XSS</filter-name>
+		<filter-class>org.okeydokey.framework.filter.CrossScriptingFilter
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>XSS</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- SERVLET -->
+	<servlet>
+		<servlet-name>OkeyDokeyServlet</servlet-name>
+		<servlet-class>org.okeydokey.framework.servlet.OkeyDokeyServlet
+		</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>OkeyDokeyServlet</servlet-name>
+		<url-pattern>*.od</url-pattern>
+		<url-pattern>*.json</url-pattern>
+		<url-pattern>*.bytearray</url-pattern>
+		<url-pattern>*.xml</url-pattern>
+		<url-pattern>*.flat</url-pattern>
+		<url-pattern>*.soap</url-pattern>
+		<url-pattern>*.webdav</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+
+</web-app>
+	

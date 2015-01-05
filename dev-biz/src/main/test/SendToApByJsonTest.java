@@ -1,6 +1,5 @@
 package main.test;
 
-import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,8 +9,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.okeydokey.framework.utils.HexDumpUtil;
 
 import com.google.gson.Gson;
 
